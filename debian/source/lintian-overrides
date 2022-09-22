@@ -1,0 +1,18 @@
+# Match types-*/*
+add-component-copyright types-highlightjs [debian/copyright]
+# These files contain long lines, made of lists of keywords
+# They appear to lintian as minified javascript files, which is wrong
+
+source-is-missing src/languages/*.js
+source-contains-prebuilt-javascript-object src/languages/*.js
+very-long-line-length-in-source-file src/languages/*.js line *
+
+# Test files
+source-is-missing debian/tests/test_modules/gear/build/gear.js
+source-is-missing test/browser/plain.js
+source-contains-browserified-javascript debian/tests/test_modules/gear/build/gear.js code *
+source-contains-prebuilt-javascript-object debian/tests/test_modules/gear/build/gear.js
+source-contains-prebuilt-javascript-object debian/tests/test_modules/gear/build/gear.min.js
+source-contains-prebuilt-javascript-object test/browser/plain.js
+very-long-line-length-in-source-file debian/tests/test_modules/gear/build/gear.js line *
+very-long-line-length-in-source-file test/*
